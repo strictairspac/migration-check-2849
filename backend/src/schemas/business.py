@@ -26,3 +26,11 @@ class RunInput(BaseModel):
  name:str=Field(min_length=2,max_length=120)
  mapping_id:int
 class RestoreInput(BaseModel):backup:dict
+class DrillPackageInput(BaseModel):
+ name:str=Field(min_length=2,max_length=120)
+ recipient_group:str=Field(min_length=2,max_length=120)
+ run_ids:list[int]=Field(default=[],max_length=50)
+class DrillAppendInput(BaseModel):
+ run_ids:list[int]=Field(min_length=1,max_length=50)
+class DrillReopenInput(BaseModel):
+ name:str|None=Field(default=None,min_length=2,max_length=120)
